@@ -9,7 +9,28 @@
     Redmond, WA 98052-6399<br />
     <abbr title="Phone">P:</abbr>
     425.555.0100
+
+    
 </address>
+
+<form asp-controller="Demo" asp-action="RegisterInput" method="post">
+    @for (int i = 0; i <= 100; i++)
+    {
+        if (i != 0)
+        {
+
+            <button type="submit"></button>
+
+        }
+
+        if (i % 10 == 0)
+        {
+            <br />
+        }
+
+
+    }
+</form>
 
 <address>
     <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />

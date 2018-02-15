@@ -1,0 +1,11 @@
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\bin\Debug\netcoreapp2.0\life.deps.json
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\bin\Debug\netcoreapp2.0\life.runtimeconfig.json
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\bin\Debug\netcoreapp2.0\life.runtimeconfig.dev.json
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\bin\Debug\netcoreapp2.0\life.dll
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\bin\Debug\netcoreapp2.0\life.pdb
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.csprojResolveAssemblyReference.cache
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.csproj.CoreCompileInputs.cache
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.AssemblyInfoInputs.cache
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.AssemblyInfo.cs
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.dll
+C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.pdb
