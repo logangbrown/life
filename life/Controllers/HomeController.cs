@@ -10,6 +10,7 @@ namespace life.Controllers
 {
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
@@ -22,9 +23,24 @@ namespace life.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Contact(String cell)
         {
             ViewData["Message"] = "Your contact page.";
+            Container.Array = new Cell[100];
+
+
+            if (cell != null)
+            {
+                Cell activeCell = new Cell();
+                int cellLocation = Int32.Parse(cell);
+                activeCell.ID = cellLocation;
+                activeCell.Active = 1;
+                Container.Array[cellLocation] = activeCell;
+            }
+
+            
+            
+            
 
             return View();
         }
