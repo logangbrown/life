@@ -45,9 +45,9 @@
     margin-right: -4px;
 }
 
-    .grid:hover {
+    /*.grid:hover {
         background-color: gold !important;
-    }
+    }*/
 
 .active {
     background-color: gold !important;

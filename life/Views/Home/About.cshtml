@@ -3,24 +3,26 @@
 }
 <h2 style="text-align: center;">Game of Life</h2>
 
-<form asp-controller="Demo" asp-action="RegisterInput" method="post">
+<form asp-controller="Home" asp-action="Toggle" method="post">
     <div class="grid-container">
         @for (int i = 1; i < Grid.GetLength(0)-1; i++)
         {
             <div class="row">
                 @for (int j = 1; j < Grid.GetLength(1)-1; j++)
                 {
+                    //For loops skip the outside egde because it's the dead zone.
                     if (Grid[i, j] == 0)
                     {
-                        <button type="submit" value="@i,@j" class="grid inactive"></button>
+                        <button type="submit" name="cell" value="@i,@j" class="grid inactive"></button>
                     }
                     if (Grid[i, j] == 1)
                     {
-                        <button type="submit" value="@i,@j" class="grid active"></button>
+                        <button type="submit" name="cell" value="@i,@j" class="grid active"></button>
                     }
+                    //In case we ever did display the dead zone, show it red, I had set the values to 2
                     if (Grid[i, j] == 2)
                     {
-                        <button type="submit" value="@i,@j" class="grid error"></button>
+                        <button type="submit" name="cell" value="@i,@j" class="grid error"></button>
                     }
                 }
             </div>
