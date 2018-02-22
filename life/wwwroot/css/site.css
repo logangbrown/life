@@ -39,8 +39,10 @@
 .grid {
     background-color: black;
     border: solid gray 1px;
-    height: 27px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
+    padding: 10px;
+    margin-right: -4px;
 }
 
     .grid:hover {
@@ -53,4 +55,8 @@
 
 .inactive {
     background-color: black;
+}
+
+.error {
+    background-color: red;
 }
