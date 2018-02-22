@@ -33,3 +33,24 @@
         display: none;
     }
 }
+
+/* CSS for the Game of Life */
+
+.grid {
+    background-color: black;
+    border: solid gray 1px;
+    height: 27px;
+    width: 20px;
+}
+
+    .grid:hover {
+        background-color: gold !important;
+    }
+
+.active {
+    background-color: gold !important;
+}
+
+.inactive {
+    background-color: black;
+}
