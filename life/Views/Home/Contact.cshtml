@@ -9,25 +9,39 @@
     Redmond, WA 98052-6399<br />
     <abbr title="Phone">P:</abbr>
     425.555.0100
+    @foreach (Cell a in Container.Array)
+    {
+        //     <b>blah</b> //this is a test case
 
-    
+        if (a != null)
+        {
+
+            if (a.Active == 1)
+            {
+                <b>blah</b>
+
+            }
+        }
+
+    }
+
+
+
 </address>
 
-<form asp-controller="Demo" asp-action="RegisterInput" method="post">
+<form asp-controller="Home" asp-action="Contact" method="post">
     @for (int i = 0; i <= 100; i++)
     {
         if (i != 0)
         {
-
-            <button type="submit"></button>
-
+            
+            <button type="submit" value=@i name="cell"> </button>
         }
 
         if (i % 10 == 0)
         {
             <br />
         }
-
 
     }
 </form>
