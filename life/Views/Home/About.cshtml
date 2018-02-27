@@ -45,7 +45,7 @@
     function Toggle(cell) {
         var data = { 'cell': cell };
         var selector = '#'.concat(cell);
-        selector = selector.replace(',', '');
+        selector = selector.replace(',', '-');
         $(selector).toggleClass('active');
         $.ajax({
             type: "POST",
