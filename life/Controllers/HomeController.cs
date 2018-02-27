@@ -10,6 +10,12 @@ namespace life.Controllers
 {
     public class HomeController : Controller
     {
+        GameGrid gameService;
+
+        public HomeController(GameGrid gameService)
+        {
+            this.gameService = gameService;
+        }
         //int[,] grid =
         //    {
         //        { 2,2,2,2,2,2,2,2,2,2,2,2 },
@@ -37,7 +43,7 @@ namespace life.Controllers
             
             //int [,] grid = new int [101,101];
 
-            ViewData["Grid"] = GameGrid.grid;
+            ViewData["Grid"] = gameService.grid;
 
             return View();
         }
@@ -55,13 +61,13 @@ namespace life.Controllers
                     sIndex = cell.Split(',');
                     iIndex[0] = Convert.ToInt32(sIndex[0]);
                     iIndex[1] = Convert.ToInt32(sIndex[1]);
-                    if (GameGrid.grid[iIndex[0], iIndex[1]] == 0)
+                    if (gameService.grid[iIndex[0], iIndex[1]] == 0)
                     {
-                        GameGrid.grid[iIndex[0], iIndex[1]] = 1;
+                        gameService.grid[iIndex[0], iIndex[1]] = 1;
                     }
-                    else if (GameGrid.grid[iIndex[0], iIndex[1]] == 1)
+                    else if (gameService.grid[iIndex[0], iIndex[1]] == 1)
                     {
-                        GameGrid.grid[iIndex[0], iIndex[1]] = 0;
+                        gameService.grid[iIndex[0], iIndex[1]] = 0;
                     }
                     else
                     {
@@ -73,15 +79,15 @@ namespace life.Controllers
 
                 }
             }
-            ViewData["Grid"] = GameGrid.grid;
+            ViewData["Grid"] = gameService.grid;
             return View("About");
         }
 
         [HttpPost]
         public IActionResult AdvanceGame()
         {
-            GameGrid.advance();
-            ViewData["Grid"] = GameGrid.grid;
+            gameService.advance();
+            ViewData["Grid"] = gameService.grid;
             return View("About");
         }
 

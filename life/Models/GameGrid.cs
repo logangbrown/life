@@ -7,9 +7,9 @@ namespace life.Models
 {
     public class GameGrid
     {
-        public static int[,] grid = new int[32, 32];
+        public int[,] grid = new int[32, 32];
 
-        public static void advance()
+        public void advance()
         {
             int[,] oldGrid = grid;
             int neighbors = 0;

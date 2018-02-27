@@ -3,7 +3,7 @@
 }
 <h2 style="text-align: center;">Game of Life</h2>
 
-<form asp-controller="Home" asp-action="Toggle" name="game-grid" method="post">
+<form asp-controller="Home" asp-action="Toggle" name="game-grid" id="game-grid" method="post">
     <div class="grid-container">
         @for (int i = 1; i < Grid.GetLength(0)-1; i++)
         {
@@ -13,16 +13,16 @@
                     //For loops skip the outside egde because it's the dead zone.
                     if (Grid[i, j] == 0)
                     {
-                        <button type="submit" name="cell" value="@i,@j" class="grid inactive"></button>
+                        <button type="button" name="cell" id="@i@j" class="grid" onclick="Toggle('@i,@j')"></button>
                     }
                     if (Grid[i, j] == 1)
                     {
-                        <button type="submit" name="cell" value="@i,@j" class="grid active"></button>
+                        <button type="button" name="cell" id="@i@j" class="grid active" onclick="Toggle('@i,@j')"></button>
                     }
                     //In case we ever did display the dead zone, show it red, I had set the values to 2
                     if (Grid[i, j] == 2)
                     {
-                        <button type="submit" name="cell" value="@i,@j" class="grid error"></button>
+                        <button type="button" name="cell" id="@i@j" class="grid error" onclick="Toggle('@i,@j')"></button>
                     }
                 }
             </span>
@@ -32,5 +32,25 @@
 </form>
 
 <form asp-controller="Home" asp-action="AdvanceGame" method="post">
-    <button type="submit">Advance</button>
+    <button type="submit" style="margin-top: 20px;">Advance</button>
 </form>
+
+<script>
+    function Toggle(cell) {
+        var data = { 'cell': cell };
+        var selector = '#'.concat(cell);
+        selector = selector.replace(',', '');
+        $(selector).toggleClass('active');
+        $.ajax({
+            type: "POST",
+            url: "/Home/Toggle",
+            data: data,
+            async: true,
+            success: function (msg) {
+            },
+            error: function () {
+                return "error";
+            }
+        });
+    }
+</script>
