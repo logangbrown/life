@@ -10,6 +10,7 @@ namespace life.Models
         static int x = 32;
         static int y = 32;
         public int[,] grid = new int[y, x];
+        public bool isRunning = false;
 
         public void advance()
         {
@@ -46,6 +47,15 @@ namespace life.Models
 
                     neighbors = 0;
                 }
+            }
+        }
+
+        public void run()
+        {
+            while (isRunning)
+            {
+                advance();
+                System.Threading.Thread.Sleep(1000);
             }
         }
     }

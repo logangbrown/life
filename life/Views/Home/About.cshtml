@@ -34,6 +34,11 @@
 <form asp-controller="Home" asp-action="AdvanceGame" method="post">
     <button type="submit" style="margin-top: 20px;">Advance</button>
 </form>
+<div style="margin-top: 20px;">
+    <button type="button" onclick="Start()">Start</button>
+    <button type="button" onclick="Stop()" style="margin-left:20px;">Stop</button>
+</div>
+
 
 <script>
     function Toggle(cell) {
@@ -45,6 +50,32 @@
             type: "POST",
             url: "/Home/Toggle",
             data: data,
+            async: true,
+            success: function (msg) {
+            },
+            error: function () {
+                return "error";
+            }
+        });
+    }
+
+    function Start() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/Start",
+            async: true,
+            success: function (msg) {
+            },
+            error: function () {
+                return "error";
+            }
+        });
+    }
+
+    function Stop() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/Stop",
             async: true,
             success: function (msg) {
             },

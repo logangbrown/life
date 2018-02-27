@@ -76,6 +76,29 @@ namespace life.Controllers
             return View("About");
         }
 
+        [HttpPost]
+        public IActionResult Start()
+        {
+            if (!gameService.isRunning)
+            {
+                gameService.isRunning = true;
+                Task.Factory.StartNew(() => gameService.run());
+            }
+            ViewData["Grid"] = gameService.grid;
+            return View("About");
+        }
+
+        [HttpPost]
+        public IActionResult Stop()
+        {
+            if (gameService.isRunning)
+            {
+                gameService.isRunning = false;
+            }
+            ViewData["Grid"] = gameService.grid;
+            return View("About");
+        }
+
         public IActionResult Contact(String cell)
         {
             // Singleton.AddToContainer();
