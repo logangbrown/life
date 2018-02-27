@@ -133,8 +133,11 @@ namespace life.Controllers
 
         public IActionResult Contact(String cell)
         {
+            // Singleton.AddToContainer();
+
+
             ViewData["Message"] = "Your contact page.";
-            Container.Array = new Cell[100];
+           // Container.Array = new Cell[100];
 
 
             if (cell != null)
@@ -143,12 +146,14 @@ namespace life.Controllers
                 int cellLocation = Int32.Parse(cell);
                 activeCell.ID = cellLocation;
                 activeCell.Active = 1;
-                Container.Array[cellLocation] = activeCell;
-            }
+               // Container.Array[cellLocation] = activeCell;
 
-            
-            
-            
+                Singleton.grid[cellLocation] = new Cell();
+                Singleton.grid[cellLocation].Active = 1;
+                Singleton.grid[cellLocation].ID = cellLocation;
+
+
+            }
 
             return View();
         }
