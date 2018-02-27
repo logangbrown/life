@@ -5,24 +5,24 @@
 
 <form asp-controller="Home" asp-action="Toggle" name="game-grid" id="game-grid" method="post">
     <div class="grid-container">
-        @for (int i = 1; i < Grid.GetLength(0)-1; i++)
+        @for (int i = 1; i < Grid.GetLength(0) - 1; i++)
         {
             <span class="grid-row">
-                @for (int j = 1; j < Grid.GetLength(1)-1; j++)
+                @for (int j = 1; j < Grid.GetLength(1) - 1; j++)
                 {
                     //For loops skip the outside egde because it's the dead zone.
                     if (Grid[i, j] == 0)
                     {
-                        <button type="button" name="cell" id="@i@j" class="grid" onclick="Toggle('@i,@j')">@i,@j</button>
+                        <button type="button" name="cell" id="@i-@j" class="grid" onclick="Toggle('@i,@j')">@i,@j</button>
                     }
                     if (Grid[i, j] == 1)
                     {
-                        <button type="button" name="cell" id="@i@j" class="grid active" onclick="Toggle('@i,@j')">@i,@j</button>
+                        <button type="button" name="cell" id="@i-@j" class="grid active" onclick="Toggle('@i,@j')">@i,@j</button>
                     }
                     //In case we ever did display the dead zone, show it red, I had set the values to 2
                     if (Grid[i, j] == 2)
                     {
-                        <button type="button" name="cell" id="@i@j" class="grid error" onclick="Toggle('@i,@j')">@i,@j</button>
+                        <button type="button" name="cell" id="@i-@j" class="grid error" onclick="Toggle('@i,@j')">@i,@j</button>
                     }
                 }
             </span>
@@ -37,6 +37,7 @@
 <div style="margin-top: 20px;">
     <button type="button" onclick="Start()">Start</button>
     <button type="button" onclick="Stop()" style="margin-left:20px;">Stop</button>
+    <button type="button" onclick="Clear()" style="margin-left:20px;">Clear</button>
 </div>
 
 
@@ -84,4 +85,50 @@
             }
         });
     }
+
+    function Clear() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/Clear",
+            async: true,
+            success: function (msg) {
+            },
+            error: function () {
+                return "error";
+            }
+        });
+    }
+
+    (function poll() {
+        setTimeout(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Home/Update",
+                success: function (data) {
+                    @{
+                    //Grid = (int[,])ViewData["Grid"];
+
+                    for (int i = 1; i < Grid.GetLength(0) - 1; i++)
+                    {
+                        for (int j = 1; j < Grid.GetLength(1) - 1; j++)
+                        {
+                            <text>
+                            if (data[@i][@j] == 1)
+                            {
+                                $("#@i-@j").addClass("active");
+                                }
+                            else
+                            {
+                                $("#@i-@j").removeClass("active");
+                                }
+                            </text>
+                        }
+                    }
+                }
+                },
+                complete: poll
+            });
+        }, 250);
+    })();
+
 </script>

@@ -7,8 +7,8 @@ namespace life.Models
 {
     public class GameGrid
     {
-        static int x = 32;
-        static int y = 32;
+        public static int x = 32;
+        public static int y = 32;
         public int[,] grid = new int[y, x];
         public bool isRunning = false;
 

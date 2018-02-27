@@ -99,6 +99,19 @@ namespace life.Controllers
             return View("About");
         }
 
+        [HttpPost]
+        public int[,] Update()
+        {
+            return gameService.grid;
+        }
+
+        [HttpPost]
+        public void Clear()
+        {
+            gameService.grid = new int[GameGrid.y,GameGrid.x];
+            gameService.isRunning = false;
+        }
+
         public IActionResult Contact(String cell)
         {
             // Singleton.AddToContainer();
