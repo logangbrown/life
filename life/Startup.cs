@@ -24,6 +24,8 @@ namespace life
         {
             services.AddMvc();
             services.AddSingleton<GameGrid>();
+            services.AddSingleton<Singleton>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
