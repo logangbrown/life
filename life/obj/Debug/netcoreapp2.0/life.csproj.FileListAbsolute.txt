@@ -9,3 +9,14 @@ C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.Assem
 C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.AssemblyInfo.cs
 C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.dll
 C:\Users\Rizwan_Laptop\Source\Repos\life\life\obj\Debug\netcoreapp2.0\life.pdb
+C:\Users\loganb\Desktop\GitHub\life\life\bin\Debug\netcoreapp2.0\life.deps.json
+C:\Users\loganb\Desktop\GitHub\life\life\bin\Debug\netcoreapp2.0\life.runtimeconfig.json
+C:\Users\loganb\Desktop\GitHub\life\life\bin\Debug\netcoreapp2.0\life.runtimeconfig.dev.json
+C:\Users\loganb\Desktop\GitHub\life\life\bin\Debug\netcoreapp2.0\life.dll
+C:\Users\loganb\Desktop\GitHub\life\life\bin\Debug\netcoreapp2.0\life.pdb
+C:\Users\loganb\Desktop\GitHub\life\life\obj\Debug\netcoreapp2.0\life.csprojResolveAssemblyReference.cache
+C:\Users\loganb\Desktop\GitHub\life\life\obj\Debug\netcoreapp2.0\life.csproj.CoreCompileInputs.cache
+C:\Users\loganb\Desktop\GitHub\life\life\obj\Debug\netcoreapp2.0\life.AssemblyInfoInputs.cache
+C:\Users\loganb\Desktop\GitHub\life\life\obj\Debug\netcoreapp2.0\life.AssemblyInfo.cs
+C:\Users\loganb\Desktop\GitHub\life\life\obj\Debug\netcoreapp2.0\life.dll
+C:\Users\loganb\Desktop\GitHub\life\life\obj\Debug\netcoreapp2.0\life.pdb

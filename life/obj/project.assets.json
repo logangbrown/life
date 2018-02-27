@@ -12535,7 +12535,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rizwan_Laptop\\.nuget\\packages\\": {},
+    "C:\\Users\\loganb\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -12544,17 +12544,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rizwan_Laptop\\Source\\Repos\\life\\life\\life.csproj",
+      "projectUniqueName": "C:\\Users\\loganb\\Desktop\\GitHub\\life\\life\\life.csproj",
       "projectName": "life",
-      "projectPath": "C:\\Users\\Rizwan_Laptop\\Source\\Repos\\life\\life\\life.csproj",
-      "packagesPath": "C:\\Users\\Rizwan_Laptop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rizwan_Laptop\\Source\\Repos\\life\\life\\obj\\",
+      "projectPath": "C:\\Users\\loganb\\Desktop\\GitHub\\life\\life\\life.csproj",
+      "packagesPath": "C:\\Users\\loganb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\loganb\\Desktop\\GitHub\\life\\life\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rizwan_Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\loganb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
