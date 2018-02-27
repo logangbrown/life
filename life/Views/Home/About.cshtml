@@ -3,11 +3,11 @@
 }
 <h2 style="text-align: center;">Game of Life</h2>
 
-<form asp-controller="Home" asp-action="Toggle" method="post">
+<form asp-controller="Home" asp-action="Toggle" name="game-grid" method="post">
     <div class="grid-container">
         @for (int i = 1; i < Grid.GetLength(0)-1; i++)
         {
-            <div class="row">
+            <span class="grid-row">
                 @for (int j = 1; j < Grid.GetLength(1)-1; j++)
                 {
                     //For loops skip the outside egde because it's the dead zone.
@@ -25,7 +25,12 @@
                         <button type="submit" name="cell" value="@i,@j" class="grid error"></button>
                     }
                 }
-            </div>
+            </span>
+            <br/>
         }
     </div>
+</form>
+
+<form asp-controller="Home" asp-action="AdvanceGame" method="post">
+    <button type="submit">Advance</button>
 </form>

@@ -38,11 +38,14 @@
 
 .grid {
     background-color: black;
-    border: solid gray 1px;
-    height: 30px;
-    width: 30px;
-    padding: 10px;
-    margin-right: -4px;
+    border: solid #454545 .1px;
+    height: 15px;
+    width: 15px;
+}
+
+.grid-container {
+    line-height: 0;
+    font-size: 0;
 }
 
     /*.grid:hover {
