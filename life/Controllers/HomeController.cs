@@ -16,21 +16,6 @@ namespace life.Controllers
         {
             this.gameService = gameService;
         }
-        //int[,] grid =
-        //    {
-        //        { 2,2,2,2,2,2,2,2,2,2,2,2 },
-        //        { 2,0,0,0,0,0,0,0,0,0,0,2 },
-        //        { 2,0,0,0,0,0,0,0,0,0,0,2 },
-        //        { 2,0,0,0,1,0,0,1,0,0,0,2 },
-        //        { 2,0,0,0,1,0,0,1,0,0,0,2 },
-        //        { 2,0,0,0,1,0,0,1,0,0,0,2 },
-        //        { 2,0,1,0,0,0,0,0,0,1,0,2 },
-        //        { 2,0,0,1,0,0,0,0,1,0,0,2 },
-        //        { 2,0,0,0,1,1,1,1,0,0,0,2 },
-        //        { 2,0,0,0,0,0,0,0,0,0,0,2 },
-        //        { 2,0,0,0,0,0,0,0,0,0,0,2 },
-        //        { 2,2,2,2,2,2,2,2,2,2,2,2 }
-        //    };
 
         public IActionResult Index()
         {
@@ -90,46 +75,6 @@ namespace life.Controllers
             ViewData["Grid"] = gameService.grid;
             return View("About");
         }
-
-        //[HttpPost]
-        //public void Toggle(string cell)
-        //{
-        //    string[] sIndex;
-        //    int[] iIndex = new int[2];
-
-        //    if (cell != null)
-        //    {
-        //        try
-        //        {
-        //            sIndex = cell.Split(',');
-        //            iIndex[0] = Convert.ToInt32(sIndex[0]);
-        //            iIndex[1] = Convert.ToInt32(sIndex[1]);
-        //            if (GameGrid.grid[iIndex[0], iIndex[1]] == 0)
-        //            {
-        //                GameGrid.grid[iIndex[0], iIndex[1]] = 1;
-        //            }
-        //            else if (GameGrid.grid[iIndex[0], iIndex[1]] == 1)
-        //            {
-        //                GameGrid.grid[iIndex[0], iIndex[1]] = 0;
-        //            }
-        //            else
-        //            {
-        //                //Invalid grid index somehow
-        //            }
-        //        }
-        //        catch
-        //        {
-
-        //        }
-        //    }
-        //    ViewData["Grid"] = GameGrid.grid;
-        //}
-
-        //[HttpPost]
-        //public void AdvanceGame()
-        //{
-        //    GameGrid.advance();
-        //}
 
         public IActionResult Contact(String cell)
         {

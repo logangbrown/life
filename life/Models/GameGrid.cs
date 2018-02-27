@@ -7,11 +7,13 @@ namespace life.Models
 {
     public class GameGrid
     {
-        public int[,] grid = new int[32, 32];
+        static int x = 32;
+        static int y = 32;
+        public int[,] grid = new int[y, x];
 
         public void advance()
         {
-            int[,] oldGrid = grid;
+            int[,] oldGrid = (int[,])grid.Clone();
             int neighbors = 0;
 
             for(int i = 0; i < grid.GetLength(0); i++)
