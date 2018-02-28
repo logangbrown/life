@@ -9,6 +9,7 @@ namespace life.Models
     {
         public static int x = 32;
         public static int y = 32;
+        public int milliseconds = 1000;
         public int[,] grid = new int[y, x];
         public bool isRunning = false;
 
@@ -55,7 +56,7 @@ namespace life.Models
             while (isRunning)
             {
                 advance();
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(milliseconds);
             }
         }
     }

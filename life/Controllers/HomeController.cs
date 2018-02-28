@@ -19,6 +19,8 @@ namespace life.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Grid"] = gameService.grid;
+
             return View();
         }
 
@@ -65,7 +67,7 @@ namespace life.Controllers
                 }
             }
             ViewData["Grid"] = gameService.grid;
-            return View("About");
+            return View("Index");
         }
 
         [HttpPost]
@@ -73,7 +75,7 @@ namespace life.Controllers
         {
             gameService.advance();
             ViewData["Grid"] = gameService.grid;
-            return View("About");
+            return View("Index");
         }
 
         [HttpPost]
@@ -85,7 +87,7 @@ namespace life.Controllers
                 Task.Factory.StartNew(() => gameService.run());
             }
             ViewData["Grid"] = gameService.grid;
-            return View("About");
+            return View("Index");
         }
 
         [HttpPost]
@@ -96,7 +98,7 @@ namespace life.Controllers
                 gameService.isRunning = false;
             }
             ViewData["Grid"] = gameService.grid;
-            return View("About");
+            return View("Index");
         }
 
         [HttpPost]
@@ -110,6 +112,15 @@ namespace life.Controllers
         {
             gameService.grid = new int[GameGrid.y,GameGrid.x];
             gameService.isRunning = false;
+        }
+
+        [HttpPost]
+        public void ChangeTime(string milliseconds)
+        {
+            try {
+                gameService.milliseconds = Int32.Parse(milliseconds);
+            }
+            catch { }
         }
 
         public IActionResult Contact(String cell)
