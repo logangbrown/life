@@ -26,6 +26,7 @@ namespace life
             services.AddSingleton<GameGrid>();
             services.AddSingleton<Singleton>();
 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +51,9 @@ namespace life
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseWebSockets();
+            app.UseMiddleware<WebSocketsmanager>();
         }
     }
 }
