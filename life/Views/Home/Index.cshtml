@@ -42,6 +42,49 @@
 </div>
 
 <script>
+    var scheme = document.location.protocol == "https:" ? "wss" : "ws";
+    var port = document.location.port ? (":" + document.location.port) : "";
+    var connectionUrl = scheme + "://" + document.location.hostname + port + "/ws";
+
+    var socket;
+
+
+
+    window.onload = function ()
+    {
+
+      socket = new WebSocket(connectionUrl);
+
+        socket.onmessage = function (event) {
+
+            var jsonData = JSON.parse(event.data);
+            @{
+            for (int i = 1; i < Grid.GetLength(0) - 1; i++)
+            {
+                for (int j = 1; j < Grid.GetLength(1) - 1; j++)
+                {
+                    <text>
+                    if (jsonData[@i][@j] == 1)
+                    {
+                        $("#@i-@j").addClass("active");
+                    }
+                    else
+                    {
+                         $("#@i-@j").removeClass("active");
+                    }
+                    </text>
+            }
+        }
+
+    }
+    };
+
+    }
+
+
+
+
+
     function Toggle(cell) {
         var data = { 'cell': cell };
         var selector = '#'.concat(cell);
@@ -98,7 +141,7 @@
         });
     }
 
-    (function poll() {
+    @*(function poll() {
         setTimeout(function () {
             $.ajax({
                 type: "POST",
@@ -126,22 +169,15 @@
                 complete: poll
             });
         }, 250);
-    })();
+    })();*@
 
 </script>
 
-<button id="BtnStart">Start</button>
+@*<button id="BtnStart">Start</button>
 <script>
     var btnStart = document.getElementById("BtnStart");
     btnStart.addEventListener("click", function (e) {
         e.preventDefault();
-
-        var protocol = location.protocol === "https:" ? "wss:" : "ws:";
-        var wsUri = protocol + "//" + window.location.host;
-        var socket = new WebSocket(wsUri);
-        socket.onopen = e => {
-            console.log("socket opened", e);
-        };
 
         socket.onclose = function (e) {
             console.log("socket closed", e);
@@ -156,4 +192,4 @@
             console.error(e.data);
         };
     });
-</script>
+</script>*@

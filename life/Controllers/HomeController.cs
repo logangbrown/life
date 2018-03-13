@@ -10,11 +10,11 @@ namespace life.Controllers
 {
     public class HomeController : Controller
     {
-        GameGrid gameService;
+        public static GameGrid gameService;
 
-        public HomeController(GameGrid gameService)
+        public HomeController(GameGrid gameServicePassed)
         {
-            this.gameService = gameService;
+            gameService = gameServicePassed;
         }
 
         public IActionResult Index()
@@ -27,7 +27,7 @@ namespace life.Controllers
         public IActionResult About()
         {
             //12x12 grid, the outside edges are the dead zone, and not displayed
-            
+
             //int [,] grid = new int [101,101];
 
             ViewData["Grid"] = gameService.grid;
@@ -110,14 +110,16 @@ namespace life.Controllers
         [HttpPost]
         public void Clear()
         {
-            gameService.grid = new int[GameGrid.y,GameGrid.x];
+            gameService.grid = new int[GameGrid.y, GameGrid.x];
             gameService.isRunning = false;
+            gameService.updated = true;
         }
 
         [HttpPost]
         public void ChangeTime(string milliseconds)
         {
-            try {
+            try
+            {
                 gameService.milliseconds = Int32.Parse(milliseconds);
             }
             catch { }
@@ -129,7 +131,7 @@ namespace life.Controllers
 
 
             ViewData["Message"] = "Your contact page.";
-           // Container.Array = new Cell[100];
+            // Container.Array = new Cell[100];
 
 
             if (cell != null)
@@ -138,7 +140,7 @@ namespace life.Controllers
                 int cellLocation = Int32.Parse(cell);
                 activeCell.ID = cellLocation;
                 activeCell.Active = 1;
-               // Container.Array[cellLocation] = activeCell;
+                // Container.Array[cellLocation] = activeCell;
 
                 Singleton.grid[cellLocation] = new Cell();
                 Singleton.grid[cellLocation].Active = 1;

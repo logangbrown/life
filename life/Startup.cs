@@ -7,6 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using life.Models;
+using life.Controllers;
+using System.Net.WebSockets;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System.Text;
+using System.Threading;
 
 namespace life
 {
@@ -44,6 +50,9 @@ namespace life
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseWebSockets();  // added
+
+
 
             app.UseMvc(routes =>
             {
@@ -52,8 +61,57 @@ namespace life
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseWebSockets();
-            app.UseMiddleware<WebSocketsmanager>();
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path == "/ws")
+                {
+                    if (context.WebSockets.IsWebSocketRequest)
+                    {
+                        WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
+                        await WebSocketHandler.SocketSend(context, webSocket);
+                    }
+                    else
+                    {
+                        context.Response.StatusCode = 400;
+                        //await next();
+                    }
+                }
+                else
+                {
+                    await next();
+                }
+
+            });
+
+            //app.Use(async (http, next) =>
+            //{
+
+            //    if (http.WebSockets.IsWebSocketRequest)
+            //    {
+            //        IHandler handler = WebsocketManager.getHandler(http.Request.Path);
+            //        if (handler == null)
+            //        {
+            //            await next();
+            //        }
+            //        else
+            //        {
+            //            var webSocket = await http.WebSockets.AcceptWebSocketAsync();
+            //            if (webSocket != null && webSocket.State == WebSocketState.Open)
+            //            {
+            //                // TODO: Handle the socket here.
+            //                WebsocketManager.Handle(webSocket, handler);
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        // Nothing to do here, pass downstream.  
+            //        await next();
+            //    }
+            //});
+
+
+
         }
     }
 }

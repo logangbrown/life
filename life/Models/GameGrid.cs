@@ -12,17 +12,18 @@ namespace life.Models
         public int milliseconds = 1000;
         public int[,] grid = new int[y, x];
         public bool isRunning = false;
+        public bool updated = false;
 
         public void advance()
         {
             int[,] oldGrid = (int[,])grid.Clone();
             int neighbors = 0;
 
-            for(int i = 0; i < grid.GetLength(0); i++)
+            for (int i = 0; i < grid.GetLength(0); i++)
             {
-                for(int j = 0; j < grid.GetLength(1); j++)
+                for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    if (i == 0 || j == 0 || i == grid.GetLength(0)-1 || j == grid.GetLength(1) - 1)
+                    if (i == 0 || j == 0 || i == grid.GetLength(0) - 1 || j == grid.GetLength(1) - 1)
                     {
                         continue;
                     }
@@ -36,12 +37,13 @@ namespace life.Models
                     if (oldGrid[i + 1, j] == 1) neighbors++; //bottom neighbor
                     if (oldGrid[i + 1, j - 1] == 1) neighbors++; //bottom left neighbor
 
-                    if (oldGrid[i,j] == 1)
+                    if (oldGrid[i, j] == 1)
                     {   //Active cell rules
                         if (neighbors < 2) grid[i, j] = 0;
                         else if (neighbors > 3) grid[i, j] = 0;
                         else grid[i, j] = 1;
-                    } else
+                    }
+                    else
                     {   //Inactive cell rules
                         if (neighbors == 3) grid[i, j] = 1;
                     }
@@ -56,6 +58,8 @@ namespace life.Models
             while (isRunning)
             {
                 advance();
+                // WebSocketHandler.SocketBroadast(this);
+                updated = true;
                 System.Threading.Thread.Sleep(milliseconds);
             }
         }
