@@ -65,6 +65,7 @@ namespace life.Controllers
                 {
 
                 }
+                gameService.updated = true;
             }
             ViewData["Grid"] = gameService.grid;
             return View("Index");

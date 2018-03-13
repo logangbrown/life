@@ -23,10 +23,8 @@ namespace life.Models
             GameGrid grid = HomeController.gameService;
             // ws = webSocket;
 
-
             while (true)
             {
-                // grid.advance();
 
                 if (grid.updated)
                 {
@@ -35,16 +33,17 @@ namespace life.Models
                     var buffer = Encoding.UTF8.GetBytes(jsonGrid);
                     var segment = new ArraySegment<byte>(buffer);
                     await webSocket.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
-                    //System.Threading.Thread.Sleep(1000);
+                    
                     grid.updated = false;
 
                 }
+                System.Threading.Thread.Sleep(50);
                 //}
             }
 
         }
 
-        //public static async Task SocketBroadast(GameGrid passedGrid)
+        //public static async Task SocketBroadcast(GameGrid passedGrid)
         //{
 
         //    // grid.advance();
@@ -53,7 +52,7 @@ namespace life.Models
         //    var jsonGrid = JsonConvert.SerializeObject(passedGrid.grid);
         //    var buffer = Encoding.UTF8.GetBytes(jsonGrid);
         //    var segment = new ArraySegment<byte>(buffer);
-        //    await ws.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
+        //    await webSocket.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
         //    // }
 
         //}

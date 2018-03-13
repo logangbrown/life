@@ -9,7 +9,7 @@ namespace life.Models
     {
         public static int x = 32;
         public static int y = 32;
-        public int milliseconds = 1000;
+        public int milliseconds = 750;
         public int[,] grid = new int[y, x];
         public bool isRunning = false;
         public bool updated = false;
