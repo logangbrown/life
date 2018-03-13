@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using life.Models;
@@ -19,17 +17,6 @@ namespace life.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Grid"] = gameService.grid;
-
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            //12x12 grid, the outside edges are the dead zone, and not displayed
-
-            //int [,] grid = new int [101,101];
-
             ViewData["Grid"] = gameService.grid;
 
             return View();
@@ -124,33 +111,6 @@ namespace life.Controllers
                 gameService.milliseconds = Int32.Parse(milliseconds);
             }
             catch { }
-        }
-
-        public IActionResult Contact(String cell)
-        {
-            // Singleton.AddToContainer();
-
-
-            ViewData["Message"] = "Your contact page.";
-            // Container.Array = new Cell[100];
-
-
-            if (cell != null)
-            {
-                Cell activeCell = new Cell();
-                int cellLocation = Int32.Parse(cell);
-                activeCell.ID = cellLocation;
-                activeCell.Active = 1;
-                // Container.Array[cellLocation] = activeCell;
-
-                Singleton.grid[cellLocation] = new Cell();
-                Singleton.grid[cellLocation].Active = 1;
-                Singleton.grid[cellLocation].ID = cellLocation;
-
-
-            }
-
-            return View();
         }
 
         public IActionResult Error()

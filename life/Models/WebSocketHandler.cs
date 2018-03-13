@@ -37,7 +37,7 @@ namespace life.Models
                     grid.updated = false;
 
                 }
-                System.Threading.Thread.Sleep(50);
+                //System.Threading.Thread.Sleep(50);
                 //}
             }
 
